@@ -1,11 +1,13 @@
 package main.java.patterns.creational.factory;
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
+
 /**
  * Created by rohit.jh on 12/06/19
  */
 
 public class ComputerFactory {
-    public Computer getComputer(String type) {
+    public Computer getComputer(String type) throws InvalidArgumentException {
         switch (type) {
             case "LAPTOP":
                 return new Laptop();
@@ -14,7 +16,7 @@ public class ComputerFactory {
             case "MICRO":
                 return new MicroComputer();
             default:
-                throw new ClassCastException();
+                throw new InvalidArgumentException(new String[]{});
         }
     }
 }
